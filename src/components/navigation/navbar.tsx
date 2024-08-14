@@ -2,9 +2,13 @@ import React from "react";
 import Link from "next/link";
 import { Icons } from "@/components";
 import { buttonVariants } from "@/components/ui/button";
+import { currentUser } from "@clerk/nextjs/server";
+import { UserButton } from "@clerk/nextjs";
 
-const Navbar = () => {
-  const user = false;
+const Navbar = async () => {
+  const user = await currentUser();
+
+  console.log("user");
 
   return (
     <header
@@ -47,7 +51,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-4">
           {user ? (
-            "user button"
+            <UserButton />
           ) : (
             <>
               <Link
