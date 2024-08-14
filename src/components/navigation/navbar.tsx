@@ -8,8 +8,6 @@ import { UserButton } from "@clerk/nextjs";
 const Navbar = async () => {
   const user = await currentUser();
 
-  console.log("user");
-
   return (
     <header
       className={
